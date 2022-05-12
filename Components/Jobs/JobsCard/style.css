@@ -1,0 +1,26 @@
+.jobs_card
+{
+    width: 100%;
+    border: 1.5px solid #9db3d7;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 20px;
+}
+.btn_apply_jobs_card{
+    font-size: 16px;
+}
+.title_jobs_card
+{
+    font-size: 30px;
+    cursor: pointer;
+}
+.title_jobs_card:hover
+{
+    text-decoration: underline;
+}
+.company_jobs_card{
+    font-size: 20px;
+}
+.location_jobs_card{
+    font-size: 20px;
+}

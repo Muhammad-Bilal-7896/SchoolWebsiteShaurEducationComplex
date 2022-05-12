@@ -1,0 +1,128 @@
+/* The major nav item  */
+select:focus>option:checked {
+    background: #fd6927 !important;
+    color: white !important;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+#logo {
+    margin-left: 20px;
+}
+
+.navbar {
+    background-color: #ffffff;
+    height: 77px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+/* The navigation bar that could collapse */
+#navbarSupportedContent {
+    /* border: 1px solid black; */
+}
+
+/* The navigation bar that could collapse */
+
+/* The major nav link  */
+.nav-link {
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+    margin-top: 7px;
+    border-bottom: 2px solid #ffffff;
+    line-height: 50px;
+}
+
+.nav-link:hover {
+    color: #fd6927 !important;
+    margin-top: 7px !important;
+    line-height: 50px;
+    border-bottom: 2px solid #043d9d;
+}
+
+.border_bottom {
+    line-height: 50px;
+    border-bottom: 2px solid #043d9d;
+}
+
+/* These are the navigation bar menu items */
+.navbar-nav {
+    /* border: 2px solid black; */
+    align-items: center;
+    justify-content: center;
+    margin-left: 8%;
+    width: fit-content !important;
+    /* border: 1px solid black; */
+}
+
+/* These are the navigation bar menu items */
+
+/* Profile DropDown */
+.profile_dropDown {
+    width: 370px !important;
+    margin-top: -5px !important;
+    box-shadow: 0px -1px 10px 1px rgb(179, 177, 177) !important;
+    /* border: 1px solid black; */
+}
+
+/* Profile DropDown */
+
+/* This will only display the email information */
+.email-item {
+    height: 58px !important;
+    line-height: 40px !important;
+    color: #2d2d2d !important;
+    background: #ffffff !important;
+    font-weight: 800;
+    margin-top: 10px;
+    cursor: text;
+}
+
+/* This will only display the email information */
+
+.dropdown-item {
+    /* border: 1px solid black; */
+    line-height: 35px;
+    font-size: 16px;
+    color: #2d2d2d !important;
+    height: 52px;
+}
+
+/* Styling for margin_left_profile_dropdown_items */
+.margin_left_profile_dropdown_items {
+    margin-left: 10px;
+}
+
+/* Styling for margin_left_profile_dropdown_items */
+
+/* Icons in the Header Styling */
+.icon_link {
+    margin-top: 10px !important;
+    line-height: 70px;
+    margin-right: 15px !important;
+    width: 50px;
+    /* border: 1px solid black; */
+    text-align: center !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.icon_custom {
+    margin: 0 auto !important;
+    /* border: 1px solid blue; */
+}
+
+.icon_link:hover {
+    border-bottom: 2px solid #043d9d !important;
+}
+
+/* Icons in the Header Styling */
+.DropdownStyle {
+    width: 98%;
+    margin-left: 1%;
+    /* border: 1px solid black; */
+}

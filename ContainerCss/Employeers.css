@@ -1,0 +1,10 @@
+.employers_container
+{
+    float: left;
+    width: 330px;
+    box-shadow: 1px 1px 1px 1px grey;
+    margin-right: 1%;
+    border: 1px solid rgb(198, 198, 198);
+    margin-left: 1%;
+    margin-top: 20px;
+}
