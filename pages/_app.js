@@ -8,7 +8,6 @@ import "../Components/DropdownFilter/style.css";
 import "../Components/Jobs/JobsCard/style.css";
 import "../ContainerCss/Alumni.css";
 //Importing the styles for navigation bar.
-import "../Components/Navbar/Navbar.css";
 import "../Components/Header/style.css";
 
 import "react-date-picker/dist/DatePicker.css"

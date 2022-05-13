@@ -4,6 +4,7 @@ import { MdMessage } from 'react-icons/md';
 //Importing the Notifications Icons
 import { BsBellFill } from "react-icons/bs";
 import Link from 'next/link';
+import Image from "next/image";
 
 import Paths from "../../Data/Components/Header/Paths/index";
 
@@ -32,6 +33,37 @@ const Header = () => {
             }
         })
         //____________________________For each loop ended___________________________
+
+
+        // The debounce function receives our function as a parameter
+        const debounce = (fn) => {
+            // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+            let frame;
+            // The debounce function returns a new function that can receive a variable number of arguments
+            return (...params) => {
+                // If the frame variable has been defined, clear it now, and queue for next frame
+                if (frame) {
+                    cancelAnimationFrame(frame);
+                }
+                // Queue our function call for the next frame
+                frame = requestAnimationFrame(() => {
+                    // Call our function and pass any params we received
+                    fn(...params);
+                });
+            }
+        };
+
+        // Reads out the scroll position and stores it in the data attribute
+        // so we can use it in our stylesheets
+        const storeScroll = () => {
+            document.documentElement.dataset.scroll = window.scrollY;
+        }
+
+        // Listen for new scroll events, here we debounce our `storeScroll` function
+        document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+
+        // Update scroll position for first time
+        storeScroll();
     })
 
     return (
@@ -48,145 +80,153 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         {/* Navbar brand */}
                         <a className="navbar-brand mt-2 mt-lg-0">
-                            <img src="/resources/ksk.png" id="logo" height={60} alt="UET" title="UET Logo" loading="lazy" />
+                            <img src="/resources/logo.ico" alt="Shaur Educational Complex" title="Shaur Educational Complex" id="logo" />
+                            <h1 id="logoCaption">SHAUR
+                                <p className="insideLogoCaption">educational complex</p>
+                            </h1>
                         </a>
                         {/* Left links */}
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            <li className="nav-item dropdown">
                                 <Link href="/">
-                                    <a className={`nav-link ${(active == 0) ? "border_bottom" : ""}`}>Home</a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/About">
-                                    <a className={`nav-link ${(active == 1) ? "border_bottom" : ""}`}>About Us</a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/Employers">
-                                    <a className={`nav-link ${(active == 2) ? "border_bottom" : ""}`}>Employers</a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/Jobs">
-                                    <a className={`nav-link ${(active == 3) ? "border_bottom" : ""}`}>Jobs(328)</a>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/Internships">
-                                    <a className={`nav-link ${(active == 4) ? "border_bottom" : ""}`}>Internships(572)</a>
-                                </Link>
-                            </li>
-                            {/* Events Dropdown */}
-                            <li className="nav-item dropdown">
-                                <Link href="/Events">
-                                    <a className={`nav-link ${(active == 5) ? "border_bottom" : ""} dropdown-toggle`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                        Events
+                                    <a className={`nav-link ${(active == 0) ? "border_bottom" : ""}`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        About
                                     </a>
                                 </Link>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <ul className="dropdown-menu navDropDown" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a className="dropdown-item" href="#">Action</a>
+                                        <a className="dropdown-item navDropDownItem" href="#">MISSION & HISTORY</a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">Another action</a>
+                                        <a className="dropdown-item navDropDownItem" href="#">HEAD OF SCHOOL</a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">Something else here</a>
+                                        <a className="dropdown-item navDropDownItem" href="#">SCHOOL GOVERNANCE</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">POLICIES & FORMS</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">CAREERS</a>
                                     </li>
                                 </ul>
                             </li>
-                            {/* Events Dropdown */}
+                            <li className="nav-item text-blue mt-2">
+                                /
+                            </li>
                             <li className="nav-item dropdown">
-                                <Link href={"/ScholarShips"}>
-                                    <a className={`nav-link ${(active == 6) ? "border_bottom" : ""} dropdown-toggle`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                        ScholarShips
+                                <Link href="/">
+                                    <a className={`nav-link ${(active == 1) ? "border_bottom" : ""}`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        Academics
                                     </a>
                                 </Link>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <ul className="dropdown-menu navDropDown" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a className="dropdown-item" href="#">Action</a>
+                                        <a className="dropdown-item navDropDownItem" href="#">ACADEMIC GUIDANCE</a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">Another action</a>
+                                        <a className="dropdown-item navDropDownItem" href="#">STEM CAREER PATHWAYS</a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="#">Something else here</a>
+                                        <a className="dropdown-item navDropDownItem" href="#">COLLEGE DUAL ENROLLMENT</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">PAID INTERNSHIP PROGRAM</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">SPECIAL EDUCATION SERVICES</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">HONOR ROLL & ACHIEVEMENTS</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li className="nav-item">
-                                <Link href="/Alumni">
-                                    <a className={`nav-link ${(active == 7) ? "border_bottom" : ""}`}>Alumni</a>
+                            <li className="nav-item text-blue mt-2">
+                                /
+                            </li>
+                            <li className="nav-item dropdown">
+                                <Link href="/">
+                                    <a className={`nav-link ${(active == 2) ? "border_bottom" : ""}`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        Campus Life
+                                    </a>
                                 </Link>
+                                <ul className="dropdown-menu navDropDown" aria-labelledby="navbarDropdownMenuLink">
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="nav-item text-blue mt-2">
+                                /
+                            </li>
+                            <li className="nav-item dropdown">
+                                <Link href="/">
+                                    <a className={`nav-link ${(active == 3) ? "border_bottom" : ""}`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        Contact Us
+                                    </a>
+                                </Link>
+                                <ul className="dropdown-menu navDropDown" aria-labelledby="navbarDropdownMenuLink">
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Something else here</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="nav-item text-blue mt-2">
+                                /
+                            </li>
+                            <li className="nav-item dropdown">
+                                <Link href="/">
+                                    <a className={`nav-link ${(active == 4) ? "border_bottom" : ""}`} href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        Quick Links
+                                    </a>
+                                </Link>
+                                <ul className="dropdown-menu navDropDown" aria-labelledby="navbarDropdownMenuLink">
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Action</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Another action</a>
+                                    </li>
+                                    <li>
+                                        <a className="dropdown-item navDropDownItem" href="#">Something else here</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                         {/* Left links */}
                     </div>
                     {/* Collapsible wrapper */}
                     {/* Right elements */}
-                    <div className="d-flex align-items-center">
-                        {/* Messages Section */}
-                        <div className="dropdown icon_link">
-                            <Link href="/messages">
-                                <a className="icon_custom me-3" href="#">
-                                    <MdMessage color="#2d2d2d" size={30} />
-                                    {/* <span className="badge rounded-pill badge-notification bg-danger">1</span> */}
-                                </a>
-                            </Link>
-                        </div>
-                        {/* Messages Section */}
-
-                        {/* Notification Section */}
-                        <div className="dropdown icon_link">
-                            <Link href="/notifications">
-                                <a className="icon_custom me-3" href="#">
-                                    <BsBellFill color="#2d2d2d" size={30} />
-                                    {/* <span className="badge rounded-pill badge-notification bg-danger">1</span> */}
-                                </a>
-                            </Link>
-                        </div>
-                        {/* Notification Section */}
-
-                        {/* Profile Section */}
-                        <div className="dropdown icon_link">
-                            <a className="dropdown-toggle icon_custom hidden-arrow" href="#" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" className="rounded-circle" height={35} alt="Black and White Portrait of a Man" loading="lazy" />
-                            </a>
-                            <ul className="dropdown-menu profile_dropDown dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                                <li>
-                                    <a className="dropdown-item email-item" href="#"><span className="margin_left_profile_dropdown_items">bilalmohib7896@gmail.com</span></a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#"><span className="margin_left_profile_dropdown_items">Profile</span></a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#"><span className="margin_left_profile_dropdown_items">My jobs</span></a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#"><span className="margin_left_profile_dropdown_items">My reviews</span></a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#"><span className="margin_left_profile_dropdown_items">Email settings</span></a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#"><span className="margin_left_profile_dropdown_items">Settings</span></a>
-                                </li>
-                                <li>
-                                    <div className="divider dropdown-divider"></div>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#"><span className="margin_left_profile_dropdown_items">Logout</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                        {/* Profile Section */}
-
-                        <div className="dropdown">
+                    <div className="icon_navbar_container d-flex align-items-center">
+                        <a href="www.facebook.com">
+                            <i class="fab icon_navbar fa-facebook text-blue"></i>
+                        </a>
+                        <a href="www.facebook.com">
+                            <i class="fab icon_navbar fa-twitter text-blue"></i>
+                        </a>
+                        <a href="www.facebook.com">
+                            <i class="fab icon_navbar fa-instagram text-blue"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab icon_navbar fa-youtube text-blue"></i>
+                        </a>
+                        <a href="">
                             <Link href="/">
-                                <a href="#">Post Job</a>
+                                <button className="btn btn-enroll">Enroll</button>
                             </Link>
-                        </div>
+                        </a>
                     </div>
                     {/* Right elements */}
                 </div>

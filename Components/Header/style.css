@@ -1,24 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Koulen&family=Nunito:wght@200&family=Zen+Loop&display=swap');
+
 /* The major nav item  */
-select:focus>option:checked {
+/* select:focus>option:checked {
     background: #fd6927 !important;
     color: white !important;
+} */
+
+/* For displaying the drop down menus upon hover */
+.dropdown:hover>.dropdown-menu {
+    display: block !important;
 }
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none !important;
+}
+
+/* For displaying the drop down menus upon hover */
 
 .nav-item {
     margin-right: 10px;
 }
 
+/* Navbar Dropdown Items */
+.navDropDown {
+    background-color: #f7941d;
+}
+
+.navDropDownItem {
+    font-size: 12px !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+    text-transform: uppercase;
+    height: 35px !important;
+    line-height: 20px !important;
+    /* border: 1px solid black; */
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    width: 340px !important;
+    font-weight: bold !important;
+    color: white !important;
+}
+
+.navDropDownItem:hover {
+    background-color: #01416f;
+}
+
+/* Navbar Dropdown Items */
+
+
 #logo {
-    margin-left: 20px;
+    margin-left: 65px;
+    width: 60px;
+    display: none !important;
+    margin-bottom: 0px !important;
+}
+
+#logoCaption {
+    font-family: monospace !important;
+    margin-top: 10px;
+    margin-left: 60px;
+    color: #01416f;
+    font-size: 55px !important;
+    font-weight: 900 !important;
+
+}
+
+.insideLogoCaption {
+    font-size: 12px !important;
+    text-transform: uppercase;
+    color: #f7941d;
 }
 
 .navbar {
-    background-color: #ffffff;
-    height: 77px;
+    background-color: #a8dcef;
+    height: 105px;
     width: 100%;
     position: fixed;
     z-index: 1000;
     border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+html:not([data-scroll="0"]) .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* background-color: #fff; */
+    opacity: 0.9;
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
+    transition: 0.4s linear;
 }
 
 /* The navigation bar that could collapse */
@@ -30,24 +99,28 @@ select:focus>option:checked {
 
 /* The major nav link  */
 .nav-link {
-    font-size: 16px;
-    color: rgb(51, 51, 51);
-    font-weight: 600;
+    font-size: 15px;
+    color: #01416f !important;
+    font-weight: bolder !important;
     margin-top: 7px;
-    border-bottom: 2px solid #ffffff;
-    line-height: 50px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: Arial !important;
+}
+
+.text-blue {
+    color: #01416f !important;
 }
 
 .nav-link:hover {
-    color: #fd6927 !important;
+    color: #ffffff !important;
     margin-top: 7px !important;
-    line-height: 50px;
-    border-bottom: 2px solid #043d9d;
 }
 
-.border_bottom {
-    line-height: 50px;
-    border-bottom: 2px solid #043d9d;
+.linkActivate {
+    /* line-height: 50px;
+    border-bottom: 2px solid #043d9d; */
 }
 
 /* These are the navigation bar menu items */
@@ -55,33 +128,11 @@ select:focus>option:checked {
     /* border: 2px solid black; */
     align-items: center;
     justify-content: center;
-    margin-left: 8%;
+    margin-left: 2%;
     width: fit-content !important;
     /* border: 1px solid black; */
 }
 
-/* These are the navigation bar menu items */
-
-/* Profile DropDown */
-.profile_dropDown {
-    width: 370px !important;
-    margin-top: -5px !important;
-    box-shadow: 0px -1px 10px 1px rgb(179, 177, 177) !important;
-    /* border: 1px solid black; */
-}
-
-/* Profile DropDown */
-
-/* This will only display the email information */
-.email-item {
-    height: 58px !important;
-    line-height: 40px !important;
-    color: #2d2d2d !important;
-    background: #ffffff !important;
-    font-weight: 800;
-    margin-top: 10px;
-    cursor: text;
-}
 
 /* This will only display the email information */
 
@@ -89,40 +140,38 @@ select:focus>option:checked {
     /* border: 1px solid black; */
     line-height: 35px;
     font-size: 16px;
-    color: #2d2d2d !important;
     height: 52px;
 }
 
-/* Styling for margin_left_profile_dropdown_items */
-.margin_left_profile_dropdown_items {
-    margin-left: 10px;
-}
 
 /* Styling for margin_left_profile_dropdown_items */
-
-/* Icons in the Header Styling */
-.icon_link {
-    margin-top: 10px !important;
-    line-height: 70px;
-    margin-right: 15px !important;
-    width: 50px;
+.icon_navbar_container {
     /* border: 1px solid black; */
-    text-align: center !important;
-    border-bottom: 2px solid transparent !important;
+    margin-right: 50px !important;
+    margin-top: 5px;
 }
 
-.icon_custom {
-    margin: 0 auto !important;
-    /* border: 1px solid blue; */
+.icon_navbar {
+    font-size: 25px;
+    margin-left: 15px;
+    margin-top: 3px;
 }
 
-.icon_link:hover {
-    border-bottom: 2px solid #043d9d !important;
+.btn-enroll {
+    background-color: #f7941d;
+    color: white;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 14px !important;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-left: 30px;
+    height: 45px;
+    border-radius: 0px !important;
+    box-shadow: none !important;
 }
 
-/* Icons in the Header Styling */
-.DropdownStyle {
-    width: 98%;
-    margin-left: 1%;
-    /* border: 1px solid black; */
+.btn-enroll:hover {
+    background-color: #01416f;
+    color: white;
+    box-shadow: none !important;
 }
